@@ -74,12 +74,16 @@ var_dump($song);
 //      $stmt->execute($song);
 //}
 
-//mettre à jour une chanson
-$sql = "UPDATE film SET duration = :duration WHERE id = :id";
-$stmt = $pdo->prepare($sql);
-$stmt->execute([
-      'duration' => 200,
-      'id' => 1
-]);
+//Supprimer un film par ID
+//$sql = "DELETE FROM song WHERE id = :id";
+//$stmt = $pdo->prepare($sql);
+//$stmt->execute(['id' => 4]);
 
+//Mettre à jour un film
+//$sql = "UPDATE song SET title = :title WHERE id = :id";
+//$stmt = $pdo->prepare($sql);
+//$stmt->execute([
+//      'title' => 'allumer le feu',
+//      'id' => 9
+//]);
 ?>
