@@ -10,4 +10,5 @@
 <body>
 <header>
       <a href="/tp-game-bdd/index.php">Retourner à l'accueil</a>
+      <a href="/tp-game-bdd/add.php">Ajouter un jeu</a>
 </header>
