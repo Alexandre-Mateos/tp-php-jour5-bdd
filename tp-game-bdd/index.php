@@ -29,5 +29,10 @@ var_dump($games);
                        </tr>
                   <?php endforeach; ?>
       </table>
+
+<?php if($_GET["success"] === 1) : ?>
+// ajout de l'alerte
+<?php endif; ?>
+
 </body>
 </html>
