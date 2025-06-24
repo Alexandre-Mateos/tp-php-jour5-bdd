@@ -6,7 +6,7 @@ $stmt = $pdo->prepare($sql);
 $stmt->execute();
 $games = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-var_dump($games);
+var_dump($_GET);
 ?>
 
 <?php include "header.php"?>
@@ -30,8 +30,11 @@ var_dump($games);
                   <?php endforeach; ?>
       </table>
 
-<?php if($_GET["success"] === 1) : ?>
-// ajout de l'alerte
+<?php if(isset($_GET['success'] ) && $_GET['success'] === '1') : ?>
+    <div class=" d-flex justify-content-between align-items-center" role="alert">
+        <p>Jeu ajouté avec succès.</p>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
 <?php endif; ?>
 
 </body>

@@ -1,6 +1,6 @@
 <?php
 require "pdo.php";
-//var_dump($_GET);
+
 
 if(
       (!isset($_GET["title"]) && strlen($_GET["title"]) < 1)
