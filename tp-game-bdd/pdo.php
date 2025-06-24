@@ -5,6 +5,6 @@ $pdo = new PDO(
       ''
 );
 
-var_dump($pdo);
+//var_dump($pdo);
 
 ?>
