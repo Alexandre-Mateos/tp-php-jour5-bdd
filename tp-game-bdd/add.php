@@ -1,7 +1,7 @@
 <?php
 include "header.php";
 
-var_dump($_GET);
+//var_dump($_GET);
 ?>
 
 <form method="get" action="treatment.php">
