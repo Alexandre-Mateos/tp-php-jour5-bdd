@@ -7,7 +7,7 @@ $stmt = $pdo->prepare($sql);
 $stmt->execute(['id' => $_GET["id"]]);
 $game = $stmt->fetch(PDO::FETCH_ASSOC);
 
-var_dump($game);
+//var_dump($game);
 $genres = ['FPS', 'action', 'aventure', 'RPG', 'stratégie', 'gestion'];
 $platform = ['PC', 'PS5', 'XBOX', 'Switch'];
 ?>
@@ -42,7 +42,7 @@ $platform = ['PC', 'PS5', 'XBOX', 'Switch'];
                   <?php endif; ?>
 
             <?php endforeach; ?>
-            
+
       </select>
       <label for="rating">Note</label>
       <input id="rating" type="number" name="rating" placeholder="/20" value="<?php echo $game["rating"] ?>">
