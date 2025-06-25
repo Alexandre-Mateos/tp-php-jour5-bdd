@@ -4,7 +4,7 @@ include "header.php";
 //var_dump($_GET);
 ?>
 
-<form method="get" action="treatment-add.php">
+<form method="post" action="treatment-add.php">
       <label for="title">Titre</label>
       <input id="titre" type="text" name="title">
       <label for="genre">Genre</label>

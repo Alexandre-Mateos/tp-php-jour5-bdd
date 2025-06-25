@@ -2,23 +2,23 @@
 require "pdo.php";
 
 
-if(
-      (!isset($_GET["title"]) && strlen($_GET["title"]) < 1)
-      || ($_GET["genre"] === "Sélectionner")
-      || ($_GET["platform"] === "Sélectionner")
-      || (!isset($_GET["rating"]))
-){
-            header("Location: /tp-game-bdd/add.php?error=1");
-            exit();
-      }
+if (
+      (!isset($_POST["title"]) || strlen($_POST["title"]) < 1)
+      || ($_POST["genre"] === "Sélectionner")
+      || ($_POST["platform"] === "Sélectionner")
+      || (!isset($_POST["rating"]) || strlen($_POST["rating"]) < 1)
+) {
+      header("Location: /tp-game-bdd/add.php?error=1");
+      exit();
+}
 
 $sql = "INSERT INTO game (title, genre, platform, rating) VALUES (:title, :genre, :platform, :rating)";
 $stmt = $pdo->prepare($sql);
 $stmt->execute([
-      'title' => htmlspecialchars($_GET['title']),
-      'genre' => htmlspecialchars($_GET['genre']),
-      'platform' => htmlspecialchars($_GET['platform']),
-      'rating' => htmlspecialchars($_GET['rating'])
+      'title' => htmlspecialchars($_POST['title']),
+      'genre' => htmlspecialchars($_POST['genre']),
+      'platform' => htmlspecialchars($_POST['platform']),
+      'rating' => htmlspecialchars($_POST['rating'])
 ]);
 
 header("Location: /tp-game-bdd/index.php?success=1");
