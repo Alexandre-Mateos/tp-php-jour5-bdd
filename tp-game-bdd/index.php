@@ -26,7 +26,10 @@ $games = $stmt->fetchAll(PDO::FETCH_ASSOC);
                              <td><?php echo $game["platform"] ?></td>
                              <td><?php echo $game["rating"] ?></td>
                              <td><a href="item.php?id=<?php echo $game["id"] ?>">Voir</a></td>
-                           <td><a href="delete.php?id=<?php echo $game["id"] ?>"><img src="images/supprimer.png" class="w-25"></a></td>
+                             <td><button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                     <img src="images/supprimer.png" class="w-25">
+                                 </button></td>
+<!--                           <td><a href="delete.php?id=--><?php //echo $game["id"] ?><!--"><img src="images/supprimer.png" class="w-25"></a></td>-->
                        </tr>
                   <?php endforeach; ?>
       </table>
@@ -44,6 +47,26 @@ $games = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 <?php endif; ?>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Attention !</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Vous êtes sur le point de supprimer un jeu. Etes vous sûr de vouloir continuer ?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                <a href="delete.php?id=<?php echo $game["id"] ?>" class="btn btn-danger">Supprimer</a>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 </body>
 </html>
