@@ -12,10 +12,10 @@ $games = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <?php include "header.php"?>
 <table>
     <tr>
-        <th>titre</th>
-        <th>genre</th>
-        <th>plateforme</th>
-        <th>note</th>
+        <th>Titre</th>
+        <th>Genre</th>
+        <th>Plateforme</th>
+        <th>Note</th>
 
     </tr>
 

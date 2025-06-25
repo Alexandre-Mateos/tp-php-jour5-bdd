@@ -27,10 +27,10 @@ $sql = "UPDATE game
 
 $stmt = $pdo->prepare($sql);
 $stmt->execute([
-      'title' => $_POST['title'],
-      'genre' => $_POST['genre'],
-      'platform' => $_POST['platform'],
-      'rating' => $_POST['rating'],
+      'title' => htmlspecialchars($_POST['title']),
+      'genre' => htmlspecialchars($_POST['genre']),
+      'platform' => htmlspecialchars($_POST['platform']),
+      'rating' => htmlspecialchars($_POST['rating']),
       'id' => $_GET['id']
 ]);
 
