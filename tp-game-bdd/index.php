@@ -10,29 +10,31 @@ $games = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <?php include "header.php"?>
-      <table>
-            <tr>
-                  <th>titre</th>
-                  <th>genre</th>
-                  <th>plateforme</th>
-                  <th>note</th>
+<table>
+    <tr>
+        <th>titre</th>
+        <th>genre</th>
+        <th>plateforme</th>
+        <th>note</th>
 
-            </tr>
+    </tr>
 
-                  <?php foreach ($games as $game) : ?>
-                       <tr>
-                             <td><?php echo $game["title"] ?></td>
-                             <td><?php echo $game["genre"] ?></td>
-                             <td><?php echo $game["platform"] ?></td>
-                             <td><?php echo $game["rating"] ?></td>
-                             <td><a href="item.php?id=<?php echo $game["id"] ?>">Voir</a></td>
-                             <td><button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                     <img src="images/supprimer.png" class="w-25">
-                                 </button></td>
-<!--                           <td><a href="delete.php?id=--><?php //echo $game["id"] ?><!--"><img src="images/supprimer.png" class="w-25"></a></td>-->
-                       </tr>
-                  <?php endforeach; ?>
-      </table>
+      <?php foreach ($games as $game) : ?>
+          <tr>
+              <td><?php echo $game["title"] ?></td>
+              <td><?php echo $game["genre"] ?></td>
+              <td><?php echo $game["platform"] ?></td>
+              <td><?php echo $game["rating"] ?></td>
+              <td><a href="item.php?id=<?php echo $game["id"] ?>">Voir</a></td>
+              <td><a href="edit.php?id=<?php echo $game["id"] ?>">Modifier</a></td>
+              <td>
+                  <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                      <img src="images/supprimer-light.png" class="w-25">
+                  </button>
+              </td>
+          </tr>
+      <?php endforeach; ?>
+</table>
 
 <?php if(isset($_GET['success'] ) && $_GET['success'] === '1') : ?>
     <div class="alert alert-success d-flex justify-content-between" role="alert">
