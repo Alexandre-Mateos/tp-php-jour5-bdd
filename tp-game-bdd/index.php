@@ -50,6 +50,13 @@ $games = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </div>
 <?php endif; ?>
 
+<?php if(isset($_GET["updated"]) && $_GET["updated"] === '1') : ?>
+    <div class="alert alert-success d-flex justify-content-between" role="alert">
+        <p>Jeu modifié avec succès.</p>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<?php endif; ?>
+
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">

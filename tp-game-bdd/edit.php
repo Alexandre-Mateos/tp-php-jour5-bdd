@@ -1,6 +1,6 @@
 <?php
 require "pdo.php";
-var_dump($_GET["id"]);
+//var_dump($_GET["id"]);
 
 $sql = "SELECT * FROM game WHERE id = :id";
 $stmt = $pdo->prepare($sql);
@@ -8,19 +8,21 @@ $stmt->execute(['id' => $_GET["id"]]);
 $game = $stmt->fetch(PDO::FETCH_ASSOC);
 
 var_dump($game);
+$genres = ['FPS', 'action'];
 ?>
 
 <?php include "header.php"?>
 
-<form method="get" action="treatment-add.php">
+<form method="post" action="treatment-edit.php?id=<?php echo $game["id"]?>">
+
       <label for="title">Titre</label>
       <input id="titre" type="text" name="title" value="<?php echo $game["title"] ?>">
       <label for="genre">Genre</label>
       <select name="genre" id="genre">
-            <option >Sélectionner</option>
+
             <option value="FPS" <?php
                   if($game['genre'] === 'FPS'){
-                        echo selected;
+                        echo "selected";
                   }
             ?> >FPS</option>
             <option value="Action"
@@ -52,7 +54,6 @@ var_dump($game);
       </select>
       <label for="platform">Plateforme</label>
       <select name="platform" id="platform">
-            <option >Sélectionner</option>
             <option value="PC" <?php
             if($game['platform'] === 'PC'){
                   echo "selected";
@@ -72,8 +73,14 @@ var_dump($game);
       </select>
       <label for="rating">Note</label>
       <input id="rating" type="number" name="rating" placeholder="/20" value="<?php echo $game["rating"] ?>">
+
       <button type="submit">Modifier</button>
+
 </form>
+
+<?php if(isset($_GET["error"]) && $_GET["error"] === "1") : ?>
+<p>Il semblerait que vous ayez effacer un champs sans le remplacer !</p>
+<?php endif; ?>
 
 </body>
 </html>

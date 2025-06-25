@@ -30,7 +30,7 @@ include "header.php";
       <button type="submit">Ajouter</button>
 </form>
 
-<?php if(isset($_GET["response"]) && $_GET["response"] === "error1") : ?>
+<?php if(isset($_GET["error"]) && $_GET["error"] === "1") : ?>
       <p>Vous devez remplir tous les champs !</p>
 <?php endif; ?>
 

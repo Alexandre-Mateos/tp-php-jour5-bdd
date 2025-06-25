@@ -8,7 +8,7 @@ if(
       || ($_GET["platform"] === "Sélectionner")
       || (!isset($_GET["rating"]))
 ){
-            header("Location: /tp-game-bdd/add.php?response=error1");
+            header("Location: /tp-game-bdd/add.php?error=1");
             exit();
       }
 
@@ -22,5 +22,5 @@ $stmt->execute([
 ]);
 
 header("Location: /tp-game-bdd/index.php?success=1");
-
+exit();
 ?>
